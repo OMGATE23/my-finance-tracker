@@ -1,0 +1,41 @@
+nav {
+    background: #581c87;
+    color: white;
+    padding: 1.5rem;
+}
+
+.nav-list {
+    display: flex;
+    margin: auto;
+    max-width: 1200px;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.nav-header {
+    display: inline;
+    font-size: 2rem;
+
+}
+
+.nav-list li:first-child {
+    margin-right: auto;
+}
+
+.nav-list li{
+    margin: 1rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: 3px solid white;
+    border-radius: 0.5rem;
+}
+
+.nav-list a:hover {
+    background:white;
+    color: #581c87;
+}
