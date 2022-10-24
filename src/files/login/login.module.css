@@ -1,0 +1,41 @@
+.login-form {
+    outline: 2px solid black;
+    width: 450px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+
+.label-id {
+    display: block;
+    /* outline: 2px solid black; */
+}
+
+.password-container {
+
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    justify-content: center;
+}
+
+
+.visibility-img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 0.2rem;
+    position: relative;
+    top: 2px;
+
+}
+
+.visibility-img img {
+    width: 25px;
+}
+
+
+.submit-btn {
+    display: block;
+    margin: auto;
+}
