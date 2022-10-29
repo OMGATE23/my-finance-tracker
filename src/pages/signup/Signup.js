@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import styles from './signup.module.css'
+import useSignup from '../../hooks/useSignup'
 
 export default function Signup() {
   const [passwordType, setPasswordType] = useState('password')
@@ -8,6 +9,7 @@ export default function Signup() {
   const [displayName, setDisplayName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const {signup, error, isPending} = useSignup()
 
   const [icon, setIcon] = useState('./visibility.svg')
 
@@ -31,11 +33,12 @@ export default function Signup() {
 
   function submitHandler(e){
     e.preventDefault()
+    signup(email, password, displayName)
   }
 
   return (
     <div className={styles['form-div']}>
-      <form className={styles['signup-form']}>
+      <form className={styles['signup-form']} onSubmit = {(e) => submitHandler(e)}>
         <h2>signup Page</h2>
         
           <input 
@@ -70,14 +73,13 @@ export default function Signup() {
           </span>
           
         </div>
-        
 
-
-        
-
-        <button value='Submit' className={styles['submit-btn']}>Submit</button>
+        {!isPending && <button value='Submit' className={styles['submit-btn']}>Submit</button>}
+        { isPending && <button disabled className={styles['submit-btn']}>Loading</button>}
         
       </form>
+
+      {error && <p>{error}</p>}
     </div>
   )
 }
