@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import useLogin from '../../hooks/useLogin'
 
 import styles from './login.module.css'
 
@@ -6,9 +7,10 @@ export default function Login() {
   const [passwordType, setPasswordType] = useState('password')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const {login, error, isPending} = useLogin()
 
   const [icon, setIcon] = useState('./visibility.svg')
-
+  
   function visibilityHandler(){
     setIcon(prev => {
       if(prev === './visibility.svg'){
@@ -29,7 +31,7 @@ export default function Login() {
 
   function submitHandler(e){
     e.preventDefault()
-    console.log(email, password)
+    login(email, password)
   }
 
   return (
@@ -70,9 +72,14 @@ export default function Login() {
 
         
 
-        <button value='Submit' className={styles['submit-btn']}>Submit</button>
+        {!isPending && <button className='btn'>Submit</button>}
+        {isPending && <button disabled className='btn'>Loading</button>}
+
+        {error && <div>{error}</div>}
         
       </form>
+
+      
     </div>
   )
 }
