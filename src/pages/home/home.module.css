@@ -9,6 +9,12 @@
     
 }
 
+.content p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1d4ed8;
+}
+
 
 
 .sidebar h3 {
@@ -84,7 +90,9 @@
     width:80%;
     border:none;
     border-radius:4px;
-    font-weight:600;
+    font-weight:400;
+    font-size: 1rem;
+    text-transform: capitalize;
 }
 
 .sidebar form button:hover {
@@ -92,7 +100,8 @@
 }
 
 .transactions {
-    
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     padding: 1rem;
     position: relative;
     overflow: hidden;
@@ -102,14 +111,19 @@
 .transactions li {
     
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 1.5rem auto;
-    width: 400px;
-    padding: 1rem 2rem;
-    
-    box-shadow: 0px 0px 25px 20px #eff6ff;
+    width: 150px;
+    aspect-ratio: 1/1;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0px 0px 50px 15px rgba(0, 0, 0, 0.05);
     background: #bae6fd;
-    border-left: 5px solid #1d4ed8;
+    border-radius: 1rem;
+    
+
     
 }
 
@@ -120,9 +134,29 @@
 }
 
 .amount {
-    margin-left: auto;
-    margin-right: 40px;
+
+    
     color: #777;
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.transactions li button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    aspect-ratio: 1/1;
+    width: 1.5rem;
+    border-radius: 50%;
+    color: white;
+    background: #3b82f6;
+    font-weight: bold;
+    
+}
+
+.transactions li button:hover {
+    cursor: pointer;
+    background-color: #1d4ed8;
 }
