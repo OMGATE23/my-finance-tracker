@@ -29,9 +29,9 @@ export default function Navbar() {
 
             {user && (
               <>
-                <li>Welcome {user.displayName}!</li>
+                
                 <li>
-                  <button className='btn' onClick={logout}>logout</button>
+                  <button className={styles['login-btn']} onClick={logout}>logout</button>
                 </li>
               </>
             )}
