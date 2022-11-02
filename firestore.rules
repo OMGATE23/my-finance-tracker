@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+      allow create: if request.auth != null;
+      //singed up user can create
+
+      allow read, delete: if request.auth.uid == resource.data.uid
+      //logged in persons user id must match the projects user id
+    }
+  }
+}
